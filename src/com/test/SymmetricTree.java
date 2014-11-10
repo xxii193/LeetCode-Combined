@@ -9,11 +9,11 @@ public class SymmetricTree {
     public boolean nodesSymmetric(TreeNode left, TreeNode right){
     	if(left == null && right == null)
     		return true;
-    	if(left != null && right != null && left.val == right.val){
+    	else if((left == null && right != null) || (left != null && right == null) || (left.val != right.val) ){
     		return false;
     	}
     	else
-    		return nodesSymmetric(left.left, right.left) && nodesSymmetric(left.right, right.right);
+    		return nodesSymmetric(left.left, right.right) && nodesSymmetric(left.right, right.left);
 
     }
     
