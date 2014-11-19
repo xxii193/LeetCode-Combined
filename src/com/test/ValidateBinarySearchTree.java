@@ -1,7 +1,7 @@
 package com.test;
 import java.util.*;
 public class ValidateBinarySearchTree {
-	/* method 1
+	 
     public boolean isValidBST(TreeNode root) {
        if(root == null)
     	   return true;
@@ -35,7 +35,7 @@ public class ValidateBinarySearchTree {
     	}
     	return list;
     }
-    */
+    
     
     public static void main(String[] args){
     	TreeNode root = new TreeNode(4);
