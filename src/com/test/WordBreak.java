@@ -3,25 +3,27 @@ import java.util.*;
 
 public class WordBreak {
     public boolean wordBreak(String s, Set<String> dict) {
-    	int i = 0;
-    	outer:
-        while(i < s.length()){
-        	for(int j = i + 1;j <= s.length();j++){
-        		String str = s.substring(i, j);
-        		if(dict.contains(str)){
-        			if(j == s.length())
-        				return true;
-        			i = j;
-        			continue outer;
-        		}
-        		
-        	}
-        	break;
+    	int length = s.length();
+    	Boolean[] checked = new Boolean[length + 1];
+    	
+    	checked[0] = true;
+       for(int i = 1; i < length + 1; i++){
+    	   checked[i] = false;
+    	   for(int j = 1; j <= i; j++){
+    		   if(checked[i - j] == true && dict.contains(s.substring(i - j,i))){
+    				   checked[i] = true;
+        			   break;
+    		   }
+    		   else{
+    			   continue;
+    		   }
+    			   
+    	   }
+    	   
         }
-    	if(i == (s.length()- 1))
-    		return true;
-    	else
-    		return false;
+    	
+    		
+    	return checked[length];
     	
     }
     
@@ -29,7 +31,7 @@ public class WordBreak {
     	String s ="leetcode";
     	WordBreak t = new WordBreak();
     	HashSet<String> dict = new HashSet<String>();
-    	dict.add("leetcode");
+    	dict.add("letcod");
     	dict.add("le");
     	dict.add("");
     	System.out.print(t.wordBreak(s, dict));
