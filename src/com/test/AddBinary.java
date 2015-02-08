@@ -20,7 +20,7 @@ public class AddBinary {
         	int tmp = (a.charAt(i) - '0') + (b.charAt(j) - '0') + carry;
             carry = tmp / 2;
             tmp = tmp % 2;
-            result.append(Integer.toString(tmp));
+            result.insert(0,Integer.toString(tmp));
             i --;
             j --;
        
@@ -29,17 +29,18 @@ public class AddBinary {
         	int tmp = b.charAt(j) - '0' + carry;
             carry = tmp / 2;
             tmp = tmp % 2;
-            result.append(Integer.toString(tmp));
+            result.insert(0,Integer.toString(tmp));
             j--;
         }
         if (carry != 0){
-        	result.append(Integer.toString(carry));
+        	result.insert(0,Integer.toString(carry));
         }
+       
         return result.toString();
     }
     
     public static void main(String[] args){
     	AddBinary t = new AddBinary();
-    	System.out.print(t.addBinary("", ""));
+    	System.out.print(t.addBinary("110", "10"));
     }
 }
